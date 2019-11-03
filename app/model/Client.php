@@ -69,10 +69,9 @@ class Client extends Model
     public function isValid(){
         
         if($this->fails){
-            $this->message = "Cliente cadastrado com sucesso";
             return false;
         }
-
+        $this->message = "Cliente cadastrado com sucesso";
         return true;
         
     }
