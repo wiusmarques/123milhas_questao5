@@ -22,12 +22,12 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "name",
+							"value": "Carlinhos Beramar",
 							"type": "text"
 						},
 						{
 							"key": "phone_number",
-							"value": "(31) 89459-0532",
+							"value": "(31) 79559-0532",
 							"type": "text"
 						},
 						{
@@ -56,6 +56,150 @@
 					"path": [
 						"create",
 						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new Item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Pizza à Moda",
+							"type": "text"
+						},
+						{
+							"key": "elements",
+							"value": "[\"Bacon\", \"Mussarela\", \"Azeitona\", \"Milho\", \"Pimentão\", \"Cebola\", \"Presunto\", \"Borda Comum\"]",
+							"type": "text"
+						},
+						{
+							"key": "size",
+							"value": "[\"P\",\"M\",\"G\",\"F\"]",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "[ { \"P\": \"22.00\" }, { \"M\": \"34.00\" }, { \"G\": \"38.00\"}, {\"F\": \"42.00\"}]",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/create/item",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create  a new Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/create/order",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "item_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "order_id",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/order/add/item",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"add",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "order_id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "item_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/order/remove/item",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"remove",
+						"item"
 					]
 				}
 			},
