@@ -2,7 +2,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 use App\Model\Client;
+use App\Model\Item;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,19 +23,39 @@ Route::get('/', function()
     return 'Hello World';
 });
 
-Route::post('/create/user', function(Request $request)
+Route::prefix('create')->group(function () {
+    Route::post('user', function(Request $request) {
+        $input = $request->all();
+        $client = new Client($input);
+
+        if($client->isValid()){
+            $message = $client->getMessage();
+            $client->save();
+            return response()->json(['success' => $message], 200);
+        }
+        
+        return response()->json(['error' => $client->getMessage()], 422);
+    });
+
+    Route::post('item', function(Request $request)
 {
     $input = $request->all();
-    $client = new Client($input);
+    $item = new Item($input);
 
-    if($client->isValid()){
-        $message = $client->getMessage();
-        $client->save();
+    if($item->isValid()){
+        $message = $item->getMessage();
+        $item->save();
         return response()->json(['success' => $message], 200);
     }
-    
-    return response()->json(['error' => $client->getMessage()], 422);
+
+    return response()->json(['error' => $item->getMessage()], 422);
     
 });
+
+});
+
+
+
+
 
 
