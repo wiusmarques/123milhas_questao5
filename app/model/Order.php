@@ -20,6 +20,6 @@ class Order extends Model
     }
 
     public function removeItem($item_id){
-        DB::table('order_item')->where('item_id', $item_id, 'order_id', $this->id)->delete();
+        DB::table('order_item')->where('item_id', $item_id)->where('order_id', $this->id)->delete();
     }
 }
