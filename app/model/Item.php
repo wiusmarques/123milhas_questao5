@@ -12,7 +12,7 @@ class Item extends Model
     public function __construct($input)
     {
         $rules = [
-            'name' => 'required',
+            'name' => 'required|unique:items,name',
             'elements' => 'required|json',
             'price' => 'required|json',
             'size' => 'required|json',

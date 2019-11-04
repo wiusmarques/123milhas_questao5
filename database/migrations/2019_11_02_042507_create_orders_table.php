@@ -17,10 +17,12 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->string('order_code');
             $table->boolean('status');
-            $table->double('price');
-            $table->string('payment_method');
-            $table->double('payment_received');
-            $table->double('ammount_returned');
+            $table->double('price')->nullable();;
+            $table->string('payment_method')->nullable();;
+            $table->double('payment_received')->nullable();;
+            $table->double('ammount_returned')->nullable();;
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('id')->on('clients');
             $table->timestamps();
             $table->softDeletes();
         });

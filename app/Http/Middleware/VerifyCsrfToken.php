@@ -22,6 +22,8 @@ class VerifyCsrfToken extends Middleware
         '/create/user/',
         '/create/item/',
         '/create/order/',
+        '/order/add/item/',
+        '/order/remove/item',
         '/order/payment/',
         '/order/list'
     ];
